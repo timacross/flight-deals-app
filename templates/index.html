@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>航空特價資訊</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center mb-6">航空公司特價資訊</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {% for deal in deals %}
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold">{{ deal.airline }}</h2>
+                <p class="text-gray-700">{{ deal.title }}</p>
+                <p class="text-green-600 font-bold">{{ deal.price }}</p>
+                <p class="text-gray-500 text-sm">更新日期: {{ deal.date }}</p>
+                <a href="{{ deal.link }}" target="_blank" class="text-blue-500 hover:underline">查看詳情</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
