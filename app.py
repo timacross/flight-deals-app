@@ -1,7 +1,3 @@
-
-python
-複製
-編輯
 from flask import Flask, render_template
 import requests
 from bs4 import BeautifulSoup
@@ -26,7 +22,7 @@ def scrape_flight_deals():
     for airline in airlines:
         try:
             response = requests.get(airline["url"], headers=headers, timeout=10)
-            response.raise_for_status()
+            response.raise_for_status()  # 若發生錯誤會引發例外
             soup = BeautifulSoup(response.text, "html.parser")
 
             # *** 真實爬蟲需根據每家航空公司網站結構來改 ***
